@@ -136,7 +136,7 @@ function showNotes() {
 function textShower(title, text, username, time) {
   let new_text = `
   <div id="main_readmore_body">
-            <div id="readmore_body" class="big_card noteCard my-5 mx-2 card" style="width: 18rem;">
+            <div id="readmore_body" class="big_card noteCard my-5 card" style="width: 18rem;">
                 <div class="card-body">
                     <div class="is_flex_title">
                         <h5>Title: </h5>
