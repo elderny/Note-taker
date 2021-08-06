@@ -1,10 +1,6 @@
 // AUTHOR: ELDERNY
 // SOCIAL MEDIA: @elderny1 on telegram
 
-/*
-You can add more features if you want to :)
-*/
-
 showNotes();
 // If user adds a note, add it to the localStorage
 let addBtn = document.getElementById("addBtn");
@@ -76,7 +72,7 @@ function btnAdder() {
 
 
 // Function to show elements from localStorage
-//GET PERMISSION FROM @elderny1 on telegram to change the copyright code below first
+//GET PERMISSION FROM @elderny1 on telegram to get access to this code below
 function showNotes() {
   let notes = localStorage.getItem('notes');
   if (notes == null) {
@@ -93,11 +89,11 @@ function showNotes() {
   if (typeof (imp_cop) != 'undefined' && imp_cop != null) {
     if (imp_cop.innerText.includes("elderny")) {
       notesObj.forEach(function (element, index) {
-        if (element.text.length > 155) {
-          text_val = String(element.text.substring(0, 155));
+        if (element.text.length > 130) {
+          text_val = String(element.text.substring(0, 130));
           text_val += ` <a href='#' style='text-decoration:none;' onclick="textShower(\` ${element.title} \`,\`  ${element.text} \`,\`  ${element.name} \`,\`  ${element.time} \`)">read more...</a>`;
 
-        } else if (element.text.length <= 155) {
+        } else if (element.text.length <= 130) {
           text_val = element.text;
           let length_get;
           if (element.important == 0) {
@@ -212,3 +208,9 @@ search.addEventListener("input", function () {
     // console.log(cardTxt);
   })
 })
+
+/*
+Further Features:
+3. Separate notes by user
+4. Sync and host to web server
+*/
