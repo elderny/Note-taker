@@ -1,6 +1,5 @@
 /* AUTHOR: ELDERNY
 SOCIAL MEDIA: @elderny1 on telegram */
-
 .on_readmore {
     -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
@@ -12,14 +11,47 @@ SOCIAL MEDIA: @elderny1 on telegram */
 
 .submitPart {
     display: flex;
+    width: 100%;
 }
 
 .importantMarker {
-    position: relative;
-    left: 80%;
-    top: 6px;
+    margin: 0 0 0 79%;
 }
-
+@media only screen and (min-width: 770px) and (max-width:1000px){
+    .importantMarker{
+        margin: 0 0 0 60%;
+    }
+}
+@media only screen and (min-width: 540px) and (max-width:770px){
+    .importantMarker{
+        margin: 0 0 0 45%;
+    }
+}
+@media only screen and (min-width: 494px) and (max-width:540px){
+    .importantMarker{
+        margin: 0 0 0 40%;
+    }
+}
+@media only screen and (min-width: 430px) and (max-width:494px){
+    .importantMarker{
+        margin: 0 0 0 30%;
+    }
+}
+@media only screen and (min-width: 300px) and (max-width:430px){
+    .importantMarker{
+        margin: 0 0 0 10%;
+    }
+}
+@media only screen and (min-width: 1200px) and (max-width:1400px){
+    .importantMarker{
+        margin: 0 0 0 75%;
+    }
+}
+@media only screen and (min-width: 1000px) and (max-width:1200px){
+    .importantMarker{
+        margin: 0 0 0 70%;
+    }
+}
 .ImpChk1 {
     border: 4px solid rgb(111, 0, 255);
 }
