@@ -1,3 +1,10 @@
+// AUTHOR: ELDERNY
+// SOCIAL MEDIA: @elderny1 on telegram
+
+/*
+You can add more features if you want to :)
+*/
+
 showNotes();
 // If user adds a note, add it to the localStorage
 let addBtn = document.getElementById("addBtn");
@@ -69,6 +76,7 @@ function btnAdder() {
 
 
 // Function to show elements from localStorage
+//GET PERMISSION FROM @elderny1 on telegram to get access to this code below
 function showNotes() {
   let notes = localStorage.getItem('notes');
   if (notes == null) {
@@ -78,20 +86,31 @@ function showNotes() {
   }
   let html = "";
   let text_val;
-  notesObj.forEach(function (element, index) {
-    if (element.text.length > 155) {
-      text_val = String(element.text.substring(0, 155));
-      text_val += ` <a href='#' style='text-decoration:none;' onclick="textShower(\` ${element.title} \`,\`  ${element.text} \`,\`  ${element.name} \`,\`  ${element.time} \`)">read more...</a>`;
+  let imp_cop = document.getElementById('elderny_copy');
+  setInterval(() => {
+    imp_cop = document.getElementById('elderny_copy');
+  }, 5000);
+  if (typeof (imp_cop) != 'undefined' && imp_cop != null) {
+    if (imp_cop.innerText.includes("elderny")) {
+      notesObj.forEach(function (element, index) {
+        if (element.text.length > 155) {
+          text_val = String(element.text.substring(0, 155));
+          text_val += ` <a href='#' style='text-decoration:none;' onclick="textShower(\` ${element.title} \`,\`  ${element.text} \`,\`  ${element.name} \`,\`  ${element.time} \`)">read more...</a>`;
 
-    } else if (element.text.length <= 155) {
-      text_val = element.text;
-      let length_get = (181 - (text_val.length)) / 30;
-      text_val += " ";
-      for (let i = 0; i < length_get; i++) {
-        text_val += "<br>";
-      }
-    }
-    html += `<div class="FixWid noteCard my-2 mx-2 card ImpChk${element.important}" style="width: 18rem;">
+        } else if (element.text.length <= 155) {
+          text_val = element.text;
+          let length_get;
+          if (element.important == 0) {
+            length_get = (181 - (text_val.length)) / 30;
+          } else {
+            length_get = (179 - (text_val.length)) / 30;
+          }
+          text_val += " ";
+          for (let i = 0; i < length_get; i++) {
+            text_val += "<br>";
+          }
+        }
+        html += `<div class="FixWid noteCard my-2 mx-2 card ImpChk${element.important}" style="width: 18rem;">
     <div class="card-body">
     <h5 class="card-title">${element.title}</h5>
     <p class="card-text">${text_val}</p>
@@ -101,41 +120,51 @@ function showNotes() {
     </div>
     </div>
     </div>`;
-  });
-  let notesElm = document.getElementById("notes");
-  if (notesObj.length != 0) {
-    notesElm.innerHTML = html;
-  } else {
-    notesElm.innerHTML = `Nothing to show! Use "Add a Note" section above to add notes.`;
+      });
+      let notesElm = document.getElementById("notes");
+      if (notesObj.length != 0) {
+        notesElm.innerHTML = html;
+      } else {
+        notesElm.innerHTML = `Nothing to show! Use "Add a Note" section above to add notes.`;
+      }
+    } else {
+      setInterval(() => {
+        window.onload = function () {
+          location.href = "https://www.t.me/elderny1";
+        }
+      }, 1000);
+      alert("You've tried to change copyright!, Contact elderny to get permission");
+    }
   }
 }
 function textShower(title, text, username, time) {
   let new_text = `
-  <div id="main_readmore_body">                
-  <div id="readmore_body" class="big_card noteCard my-5 mx-2 card" style="width: 18rem;">
-  <div class="card-body">
-  <div class="is_flex">
-  <h5>Title: </h5>
-  <p class="card-title zoomed_title">${title}</p>
-  <button type="button" class="btn-close zoomed_close_btn" data-bs-dismiss="alert" onclick="rdclbtn()" aria-label="Close"></button>
-  </div>
-  <div class="is_flex">
-  <h6>Username: </h6>
-  <p class="card-title zoomed_username">${username}</p>
-  </div>
-  <div class="is_flex">
-  <h6>Added Date: </h6>
-  <p class="card-title zoomed_time">${time}</p>
-  </div>
-  <h3 class="text-center zoomed_heading">NOTE</h3>
-  </div>
-  <hr class="mx-3">
-  <p class="card-text mx-3 zoomed_text">${text}</p>
-  <hr class="mx-3">
-  </div>
-  </div>
-  </div>
-  </div>`;
+  <div id="main_readmore_body">
+            <div id="readmore_body" class="big_card noteCard my-5 mx-2 card" style="width: 18rem;">
+                <div class="card-body">
+                    <div class="is_flex_title">
+                        <h5>Title: </h5>
+                        <p class="card-title zoomed_title">${title}</p>
+                        </div>
+                        <button type="button" class="btn-close zoomed_close_btn" data-bs-dismiss="alert"
+                            onclick="rdclbtn()" aria-label="Close"></button>
+                    <div class="is_flex">
+                        <h6>Username: </h6>
+                        <p class="card-title zoomed_username">${username}</p>
+                    </div>
+                    <div class="is_flex">
+                        <h6>Added Date: </h6>
+                        <p class="card-title zoomed_time">${time}</p>
+                    </div>
+                    <h3 class="text-center zoomed_heading">NOTE</h3>
+                </div>
+                <hr class="mx-3">
+                <p class="card-text mx-3 zoomed_text">${text}</p>
+                <hr class="mx-3">
+            </div>
+        </div>
+    </div>
+    </div>`;
   let overlap_text = document.getElementById("overlap_text");
   overlap_text.innerHTML = new_text;
   let main_body = document.getElementById('main_body');
@@ -183,9 +212,3 @@ search.addEventListener("input", function () {
     // console.log(cardTxt);
   })
 })
-
-/*
-Further Features:
-3. Separate notes by user
-4. Sync and host to web server
-*/
