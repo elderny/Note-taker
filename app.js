@@ -76,7 +76,7 @@ function btnAdder() {
 
 
 // Function to show elements from localStorage
-//GET PERMISSION FROM @elderny1 on telegram to get access to this code below
+//GET PERMISSION FROM @elderny1 on telegram to change the copyright code below first
 function showNotes() {
   let notes = localStorage.getItem('notes');
   if (notes == null) {
