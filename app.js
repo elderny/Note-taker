@@ -10,18 +10,44 @@ let addBtn = document.getElementById("addBtn");
 //Add the message element from the HTML
 addBtn.addEventListener("click", showError);
 
+//Declaring for the use of functions
+let showPop = document.getElementById('showPop');
+let message = '';
+
+//Show success or error popup on adding and deleting notes
+function btnclkMessage(type, text) {
+  let typeTxt;
+  if (type == 'success') {
+    typeTxt = 'Added';
+  }
+  else if (type == 'danger') {
+    typeTxt = 'Deleted';
+  }
+  message = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+  <strong>${typeTxt}:</strong> ${text}!
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>`
+  showPop.innerHTML += message;
+  setTimeout(() => {
+    showPop.innerHTML = '';
+  }, 5000);
+}
+
 //Show error if the username is more then 8 characters
-let showErr = document.getElementById('showErr');
 function showError() {
   let addTxt = document.getElementById("addTxt");
   let addTitle = document.getElementById("addTitle");
   let addName = document.getElementById("addName");
+  message = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <strong>Error,</strong> Username limit - 8 characters, Title limit - 18 characters
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>`
   //If username contains more then 8 characters show error
-  if (addName.value.length > 8) {
-    showErr.classList.replace("hide", "show");
+  if (addName.value.length > 8 || addTitle.value.length > 18) {
+    showPop.innerHTML += message;
     setTimeout(() => {
-      showErr.classList.replace("show", "hide");
-    }, 5000);
+      showPop.innerHTML = '';
+    }, 10000);
     addTxt.value = "";
     addTitle.value = "";
     impChecker = 0;
@@ -70,10 +96,12 @@ function btnAdder() {
   notesObj.push(myObj);
   localStorage.setItem("notes", JSON.stringify(notesObj));
   // Reset the variables values
+  let title_msg = addTitle.value;
   addTxt.value = "";
   addTitle.value = "";
   impChecker = 0;
   current_time = "";
+  btnclkMessage(`success`, `Note, ${title_msg} has been added to the storage`);
   showNotes();
 };
 
@@ -200,7 +228,7 @@ function deleteNote(index) {
   } else {
     notesObj = JSON.parse(notes);
   }
-
+  btnclkMessage(`danger`, `Note, ${notesObj[index].title} has been deleted from the storage`);
   notesObj.splice(index, 1);
   localStorage.setItem("notes", JSON.stringify(notesObj));
   showNotes();
