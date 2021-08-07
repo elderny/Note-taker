@@ -39,11 +39,11 @@ function showError() {
   let addTitle = document.getElementById("addTitle");
   let addName = document.getElementById("addName");
   message = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                  <strong>Error,</strong> Username limit - 8 characters, Title limit - 18 characters
+                  <strong>Error,</strong> Username limit - 8 characters, Title limit - 18 characters, Note limit - 0+
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>`
   //If username contains more then 8 characters show error
-  if (addName.value.length > 8 || addTitle.value.length > 18) {
+  if (addName.value.length > 8 || addTitle.value.length > 18 || addTxt.value.length < 0) {
     showPop.innerHTML += message;
     setTimeout(() => {
       showPop.innerHTML = '';
