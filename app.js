@@ -1,20 +1,22 @@
 // AUTHOR: ELDERNY
 // SOCIAL MEDIA: @elderny1 on telegram
 
+//Call for function if user might have stored some notes already while loading the web page
 showNotes();
+
 // If user adds a note, add it to the localStorage
 let addBtn = document.getElementById("addBtn");
 
-
+//Add the message element from the HTML
 addBtn.addEventListener("click", showError);
 
 //Show error if the username is more then 8 characters
-
 let showErr = document.getElementById('showErr');
 function showError() {
   let addTxt = document.getElementById("addTxt");
   let addTitle = document.getElementById("addTitle");
   let addName = document.getElementById("addName");
+  //If username contains more then 8 characters show error
   if (addName.value.length > 8) {
     showErr.classList.replace("hide", "show");
     setTimeout(() => {
@@ -24,6 +26,7 @@ function showError() {
     addTitle.value = "";
     impChecker = 0;
   } else {
+    //Otherwise we will call the note adder function
     btnAdder();
   }
 }
@@ -39,12 +42,15 @@ function getTime() {
   return datetime;
 }
 
+//This will add new note to the list
 function btnAdder() {
+  //Define main variables
   let notes = localStorage.getItem("notes");
   let markImp = document.getElementById('markImp');
   let impChecker = 0;
   let current_time = getTime();
   console.log(current_time);
+  // Check if conditions are met or not
   if (markImp.checked) {
     impChecker = 1;
   }
@@ -60,18 +66,19 @@ function btnAdder() {
     name: addName.value,
     time: current_time
   };
+  //This will push user inserted data into an array string as JSON
   notesObj.push(myObj);
   localStorage.setItem("notes", JSON.stringify(notesObj));
+  // Reset the variables values
   addTxt.value = "";
   addTitle.value = "";
   impChecker = 0;
   current_time = "";
-  //console.log(notesObj);
   showNotes();
 };
 
 
-// Function to show elements from localStorage
+// Function to show notes which are saved in localStorage
 //GET PERMISSION FROM @elderny1 on telegram to get access to this code below
 function showNotes() {
   let notes = localStorage.getItem('notes');
@@ -80,23 +87,26 @@ function showNotes() {
   } else {
     notesObj = JSON.parse(notes);
   }
+  //defining some variables
   let html = "";
   let text_val;
   let imp_cop = document.getElementById('elderny_copy');
   setInterval(() => {
     imp_cop = document.getElementById('elderny_copy');
   }, 5000);
+  //This code will maintain note card width and height and position
   if (typeof (imp_cop) != 'undefined' && imp_cop != null) {
     if (imp_cop.innerText.includes("elderny")) {
       notesObj.forEach(function (element, index) {
         if (element.text.length > 130) {
+          //This will stop text more then 130 characters to be shown directly on card stopping overflow
           text_val = String(element.text.substring(0, 130));
           text_val += ` <a href='#' style='text-decoration:none;' onclick="textShower(\` ${element.title} \`,\`  ${element.text} \`,\`  ${element.name} \`,\`  ${element.time} \`)">read more...</a>`;
-
         } else if (element.text.length <= 130) {
           text_val = element.text;
           let length_get;
           if (element.important == 0) {
+            //This is just basic logic to fill the empty spaces with line brake
             length_get = (181 - (text_val.length)) / 30;
           } else {
             length_get = (179 - (text_val.length)) / 30;
@@ -117,6 +127,7 @@ function showNotes() {
     </div>
     </div>`;
       });
+      //This will add the note to the localstorage notes array
       let notesElm = document.getElementById("notes");
       if (notesObj.length != 0) {
         notesElm.innerHTML = html;
@@ -124,6 +135,7 @@ function showNotes() {
         notesElm.innerHTML = `Nothing to show! Use "Add a Note" section above to add notes.`;
       }
     } else {
+      //This is the copyright protection part DON't mess wit it
       setInterval(() => {
         window.onload = function () {
           location.href = "https://www.t.me/elderny1";
@@ -133,7 +145,10 @@ function showNotes() {
     }
   }
 }
+
+//This will show the readmore part of the note
 function textShower(title, text, username, time) {
+  //This is the readmore html part, you can add it in html directly then access the content parts through id and classes if you want to
   let new_text = `
   <div id="main_readmore_body">
             <div id="readmore_body" class="big_card noteCard my-5 card" style="width: 18rem;">
@@ -166,6 +181,8 @@ function textShower(title, text, username, time) {
   let main_body = document.getElementById('main_body');
   main_body.className += " on_readmore";
 }
+
+//This will close the readmore part of the note
 function rdclbtn() {
   console.log("click");
   let readmore_body = document.getElementById('main_readmore_body');
@@ -176,7 +193,6 @@ function rdclbtn() {
 
 // Function to delete a note
 function deleteNote(index) {
-  //   console.log("I am deleting", index);
 
   let notes = localStorage.getItem("notes");
   if (notes == null) {
@@ -190,12 +206,11 @@ function deleteNote(index) {
   showNotes();
 }
 
-
+//THis will help to search throughout the notes
 let search = document.getElementById('searchTxt');
 search.addEventListener("input", function () {
 
   let inputVal = search.value;
-  // console.log('Input event fired!', inputVal);
   let noteCards = document.getElementsByClassName('noteCard');
   Array.from(noteCards).forEach(function (element) {
     let cardTxt = element.getElementsByTagName("p")[0].innerText;
@@ -205,12 +220,5 @@ search.addEventListener("input", function () {
     else {
       element.style.display = "none";
     }
-    // console.log(cardTxt);
   })
 })
-
-/*
-Further Features:
-3. Separate notes by user
-4. Sync and host to web server
-*/
