@@ -33,7 +33,7 @@ function btnclkMessage(type, text) {
   }, 5000);
 }
 
-//Show error if the username is more then 8 characters
+//Show error if the input requirement doesn't meet
 function showError() {
   let addTxt = document.getElementById("addTxt");
   let addTitle = document.getElementById("addTitle");
@@ -42,7 +42,7 @@ function showError() {
                   <strong>Error,</strong> Username limit - 8 characters, Title limit - 18 characters, Note limit - 0+
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>`
-  //If username contains more then 8 characters show error
+  //check username, title and notes input requirement 
   if (addName.value.length > 8 || addTitle.value.length > 18 || addTxt.value.length <= 0) {
     showPop.innerHTML += message;
     setTimeout(() => {
