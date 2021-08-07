@@ -176,11 +176,11 @@ function textShower(title, text, username, time) {
                         </div>
                         <button type="button" class="btn-close zoomed_close_btn" data-bs-dismiss="alert"
                             onclick="rdclbtn()" aria-label="Close"></button>
-                    <div class="is_flex">
+                    <div class="is_flex_more">
                         <h6>Username: </h6>
                         <p class="card-title zoomed_username">${username}</p>
                     </div>
-                    <div class="is_flex">
+                    <div class="is_flex_more">
                         <h6>Added Date: </h6>
                         <p class="card-title zoomed_time">${time}</p>
                     </div>
