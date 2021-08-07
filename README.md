@@ -1,7 +1,7 @@
 # Note-taker
 This is a webPage that will take notes from the user and will save them
 
-Features added
+**Features added**
 1. Can add title
 2. Can delete Notes
 3. Can add notes
@@ -20,10 +20,10 @@ Features added
 16. Mobile responsive now :)
 
 
-Bugs to be fixed:
+**Bugs to be fixed:**
 1. In mobile if we will open navbar the navbar wont close then
 
-Bugs Fixed:
+**Bugs Fixed:**
 1. Note card delete button unspecified position aligned
 
 I'll be adding more features soon :)
