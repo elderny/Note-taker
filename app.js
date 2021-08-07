@@ -126,23 +126,12 @@ function showNotes() {
   if (typeof (imp_cop) != 'undefined' && imp_cop != null) {
     if (imp_cop.innerText.includes("elderny")) {
       notesObj.forEach(function (element, index) {
-        if (element.text.length > 130) {
+        if (element.text.length > 168) {
           //This will stop text more then 130 characters to be shown directly on card stopping overflow
-          text_val = String(element.text.substring(0, 130));
+          text_val = String(element.text.substring(0, 168));
           text_val += ` <a href='#' style='text-decoration:none;' onclick="textShower(\` ${element.title} \`,\`  ${element.text} \`,\`  ${element.name} \`,\`  ${element.time} \`)">read more...</a>`;
-        } else if (element.text.length <= 130) {
+        } else if (element.text.length <= 168) {
           text_val = element.text;
-          let length_get;
-          if (element.important == 0) {
-            //This is just basic logic to fill the empty spaces with line brake
-            length_get = (181 - (text_val.length)) / 30;
-          } else {
-            length_get = (179 - (text_val.length)) / 30;
-          }
-          text_val += " ";
-          for (let i = 0; i < length_get; i++) {
-            text_val += "<br>";
-          }
         }
         html += `<div class="FixWid noteCard my-2 mx-2 card ImpChk${element.important}" style="width: 18rem;">
     <div class="card-body">
@@ -150,7 +139,7 @@ function showNotes() {
     <p class="card-text">${text_val}</p>
     <div class="is_flex">
     <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
-    <p class="card-text username"><b>${element.name}</b></p>
+    <span class="card-text username"><b>${element.name}</b></span>
     </div>
     </div>
     </div>`;
