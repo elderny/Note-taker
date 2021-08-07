@@ -128,7 +128,7 @@ function showNotes() {
         window.onload = function () {
           location.href = "https://www.t.me/elderny1";
         }
-      }, 1000);
+      }, 5000);
       alert("You've tried to change copyright!, Contact elderny to get permission");
     }
   }
