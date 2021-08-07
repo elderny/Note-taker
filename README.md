@@ -15,6 +15,13 @@ further features added
 11. Can add unlimited notes
 12. Can add different users
 13. Can close browser/tab/window or pc it will still have your notes
+14. Mobile responsive now :)
+
+
+Bugs to be fixed:
+1. In mobile if we will open navbar the navbar wont close then
+
+
 
 I'll be adding more features soon :)
 telegram: @elderny1
