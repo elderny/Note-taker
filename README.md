@@ -23,7 +23,8 @@ Features added
 Bugs to be fixed:
 1. In mobile if we will open navbar the navbar wont close then
 
-
+Bugs Fixed:
+1. Note card delete button unspecified position aligned
 
 I'll be adding more features soon :)
 telegram: @elderny1
