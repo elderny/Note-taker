@@ -68,6 +68,11 @@ SOCIAL MEDIA: @elderny1 on telegram */
     display: flex;
     width: 50%;
 }
+.is_flex_more{
+    display: flex;
+    margin:0px;
+    padding: 0px;
+}
 
 .username {
     display: block;
