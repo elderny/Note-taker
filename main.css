@@ -60,6 +60,8 @@ SOCIAL MEDIA: @elderny1 on telegram */
     display: flex;
     margin: 0px;
     padding: 0px;
+    position: absolute;
+    bottom: 10px;
 }
 
 .is_flex_title {
@@ -70,11 +72,11 @@ SOCIAL MEDIA: @elderny1 on telegram */
 .username {
     display: block;
     position: relative;
-    left: 35%;
-    top: 10px;
+    left: 45%;
+    top: 9px;
     height: 25px;
     padding: 0px 2.5px;
-    background-color: rgb(205, 28, 221);
+    background-color: rgb(221 98 28);
     color: white;
     border: 2px solid black;
     border-radius: 16px;
