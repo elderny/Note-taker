@@ -103,7 +103,6 @@ function btnAdder() {
   let markImp = document.getElementById('markImp');
   let impChecker = 0;
   let current_time = getTime();
-  console.log(current_time);
   // Check if conditions are met or not
   if (markImp.checked) {
     impChecker = 1;
@@ -155,7 +154,7 @@ function showNotes() {
     if (imp_cop.innerText.includes("elderny")) {
       notesObj.forEach(function (element, index) {
         if (element.text.length > 168) {
-          //This will stop text more then 130 characters to be shown directly on card stopping overflow
+          //This will stop text more then 168 characters to be shown directly on card stopping overflow
           text_val = String(element.text.substring(0, 168));
           text_val += ` <a href='#' style='text-decoration:none;' onclick="textShower(\` ${element.title} \`,\`  ${element.text} \`,\`  ${element.name} \`,\`  ${element.time} \`)">read more...</a>`;
         } else if (element.text.length <= 168) {
