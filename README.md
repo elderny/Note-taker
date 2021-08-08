@@ -29,6 +29,7 @@ This is a webPage that will take notes from the user and will save them
 **Bugs Fixed:**
 1. Note card delete button unspecified position aligned
 2. Navbar not closing after opening in mobile
+3. Mark important button not responsive
 
 I'll be adding more features soon :)
 telegram: @elderny1
