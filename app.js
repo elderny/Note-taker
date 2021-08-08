@@ -4,6 +4,34 @@
 //Call for function if user might have stored some notes already while loading the web page
 showNotes();
 
+
+/*           BUG FIX                */
+
+//****Fix Navbar not closing in mobile****
+let nav_main = document.querySelector('.navbar-collapse');
+let nav_iconHTML = document.getElementById('icon_bdy').innerHTML;
+let nav_icon = document.getElementById('icon_bdy');
+let new_navIcon = `<button id="close_btn" class="navbar-toggler" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>`
+setInterval(() => {
+  document.querySelector('#navvBar').addEventListener('click', () => {
+    nav_icon.innerHTML = '';
+    nav_icon.innerHTML = new_navIcon;
+    close_btn = document.getElementById('close_btn');
+    close_btn.addEventListener('click', close_icon_clk);
+  });
+}, 500);
+
+function close_icon_clk() {
+  nav_main = document.querySelector('.navbar-collapse');
+  nav_icon.innerHTML = new_navIcon;
+  nav_main.classList.remove('show');
+  nav_icon.innerHTML = nav_iconHTML;
+}
+
+/*             BUG END                     */
+
 // If user adds a note, add it to the localStorage
 let addBtn = document.getElementById("addBtn");
 
@@ -33,7 +61,7 @@ function btnclkMessage(type, text) {
   }, 5000);
 }
 
-//Show error if the input requirement doesn't meet
+//Show error if the username is more then 8 characters 
 function showError() {
   let addTxt = document.getElementById("addTxt");
   let addTitle = document.getElementById("addTitle");
@@ -42,7 +70,7 @@ function showError() {
                   <strong>Error,</strong> Username limit - 8 characters, Title limit - 18 characters, Note limit - 0+
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>`
-  //check username, title and notes input requirement 
+  //If username contains more then 8 characters show error
   if (addName.value.length > 8 || addTitle.value.length > 18 || addTxt.value.length <= 0) {
     showPop.innerHTML += message;
     setTimeout(() => {
@@ -134,7 +162,7 @@ function showNotes() {
           text_val = element.text;
         }
         html += `<div class="FixWid noteCard my-2 mx-2 card ImpChk${element.important}" style="width: 18rem;">
-    <div class="card-body">
+    <div class="card-body fix_margin">
     <h5 class="card-title">${element.title}</h5>
     <p class="card-text">${text_val}</p>
     <div class="is_flex">
@@ -168,31 +196,33 @@ function textShower(title, text, username, time) {
   //This is the readmore html part, you can add it in html directly then access the content parts through id and classes if you want to
   let new_text = `
   <div id="main_readmore_body">
-            <div id="readmore_body" class="big_card noteCard my-5 card" style="width: 18rem;">
-                <div class="card-body">
-                    <div class="is_flex_title">
-                        <h5>Title: </h5>
-                        <p class="card-title zoomed_title">${title}</p>
-                        </div>
-                        <button type="button" class="btn-close zoomed_close_btn" data-bs-dismiss="alert"
-                            onclick="rdclbtn()" aria-label="Close"></button>
-                    <div class="is_flex_more">
-                        <h6>Username: </h6>
-                        <p class="card-title zoomed_username">${username}</p>
-                    </div>
-                    <div class="is_flex_more">
-                        <h6>Added Date: </h6>
-                        <p class="card-title zoomed_time">${time}</p>
-                    </div>
-                    <h3 class="text-center zoomed_heading">NOTE</h3>
-                </div>
-                <hr class="mx-3">
-                <p class="card-text mx-3 zoomed_text">${text}</p>
-                <hr class="mx-3">
+    <div id="readmore_body" class="big_card noteCard my-5 card" style="width: 18rem;">
+        <div class="card-body">
+            <div class="is_flex_title">
+                <h5>Title: </h5>
+                <p class="card-title zoomed_title">${title}</p>
             </div>
+            <button type="button" class="btn-close zoomed_close_btn" data-bs-dismiss="alert" onclick="rdclbtn()"
+                aria-label="Close"></button>
+            <div class="content_joiner">
+                <div class="is_flex_new">
+                    <h6>Username: </h6>
+                    <p class="card-title zoomed_username">${username}</p>
+                </div>
+                <div class="is_flex_new">
+                    <h6>Added Date: </h6>
+                    <p class="card-title zoomed_time">${time}</p>
+                </div>
+            </div>
+            <h3 class="text-center zoomed_heading">NOTE</h3>
         </div>
+        <hr class="mx-3">
+        <p class="card-text mx-3 zoomed_text">${text}</p>
+        <hr class="mx-3">
     </div>
-    </div>`;
+</div>
+</div>
+</div>`;
   let overlap_text = document.getElementById("overlap_text");
   overlap_text.innerHTML = new_text;
   let main_body = document.getElementById('main_body');
