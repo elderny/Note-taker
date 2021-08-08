@@ -21,10 +21,11 @@ This is a webPage that will take notes from the user and will save them
 
 
 **Bugs to be fixed:**
-1. In mobile if we will open navbar the navbar wont close then
+NONE
 
 **Bugs Fixed:**
 1. Note card delete button unspecified position aligned
+2. Navbar not closing after opening in mobile
 
 I'll be adding more features soon :)
 telegram: @elderny1
