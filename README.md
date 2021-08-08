@@ -24,7 +24,7 @@ This is a webPage that will take notes from the user and will save them
 1. Card content isn't stable if added blank lines content will overflow
 2. If added think letters like "f" over 150 times readmore option will show up but the card will be half empty (Need to update logic of card)
 
---Guys I won't be updating anything related to this project now if you're interested you can always add more features or update it--
+**--Guys I won't be updating anything related to this project now if you're interested you can always add more features or update it--**
 
 **Bugs Fixed:**
 1. Note card delete button unspecified position aligned
