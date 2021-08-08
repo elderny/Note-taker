@@ -17,6 +17,16 @@ SOCIAL MEDIA: @elderny1 on telegram */
 .importantMarker {
     margin: 0 0 0 79%;
 }
+@media only screen and (min-width: 1199px) and (max-width:1400px){
+    .importantMarker{
+        margin: 0 0 0 75%;
+    }
+}
+@media only screen and (min-width: 1000px) and (max-width:1199px){
+    .importantMarker{
+        margin: 0 0 0 70%;
+    }
+}
 @media only screen and (min-width: 770px) and (max-width:1000px){
     .importantMarker{
         margin: 0 0 0 60%;
@@ -37,19 +47,19 @@ SOCIAL MEDIA: @elderny1 on telegram */
         margin: 0 0 0 30%;
     }
 }
-@media only screen and (min-width: 300px) and (max-width:430px){
+@media only screen and (min-width: 405px) and (max-width:430px){
+    .importantMarker{
+        margin: 0 0 0 25%;
+    }
+}
+@media only screen and (min-width: 383px) and (max-width:405px){
+    .importantMarker{
+        margin: 0 0 0 20%;
+    }
+}
+@media only screen and (min-width: 300px) and (max-width:383px){
     .importantMarker{
         margin: 0 0 0 10%;
-    }
-}
-@media only screen and (min-width: 1199px) and (max-width:1400px){
-    .importantMarker{
-        margin: 0 0 0 75%;
-    }
-}
-@media only screen and (min-width: 1000px) and (max-width:1199px){
-    .importantMarker{
-        margin: 0 0 0 70%;
     }
 }
 .ImpChk1 {
@@ -63,15 +73,17 @@ SOCIAL MEDIA: @elderny1 on telegram */
     position: absolute;
     bottom: 10px;
 }
+.is_flex_new{
+    display:flex;
+    margin-top: 0px;
+}
+.content_joiner{
+    margin-top: -25px;
 
+}
 .is_flex_title {
     display: flex;
     width: 50%;
-}
-.is_flex_more{
-    display: flex;
-    margin:0px;
-    padding: 0px;
 }
 
 .username {
@@ -100,11 +112,13 @@ SOCIAL MEDIA: @elderny1 on telegram */
     display: block;
     z-index: 10;
     width: 94% !important;
-    height: 100vh;
+    height: 78vh;
     top: 60px;
     left: 2.5%;
 }
-
+.fix_margin{
+    margin-top: -8px;
+}
 .zoomed_title {
     position: relative;
     font-size: 18px;
