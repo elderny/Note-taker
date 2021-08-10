@@ -76,8 +76,6 @@ function showError() {
     setTimeout(() => {
       showPop.innerHTML = '';
     }, 10000);
-    addTxt.value = "";
-    addTitle.value = "";
     impChecker = 0;
   } else {
     //Otherwise we will call the note adder function
